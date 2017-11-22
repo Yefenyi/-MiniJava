@@ -2,13 +2,13 @@
 
 This is a compiler project for MiniJava.
 
-###Members
+## Members
 
-###How to Run
+## How to Run
 
-###Dependency
+## Dependency
 
-###Reference
+## Reference
 
 [BNF for MiniJava](http://www.cambridge.org/us/features/052182060X/grammar.html) 
 
