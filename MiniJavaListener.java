@@ -3,9 +3,6 @@ import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.Token;
 
 public interface MiniJavaListener extends ParseTreeListener {
-	void enterStat(MiniJavaParser.StatContext ctx);
-	void exitStat(MiniJavaParser.StatContext ctx);
-
-	void enterExpr(MiniJavaParser.ExprContext ctx);
-	void exitExpr(MiniJavaParser.ExprContext ctx);
+	void enterProg(MiniJavaParser.ProgContext ctx);
+	void exitProg(MiniJavaParser.ProgContext ctx);
 }

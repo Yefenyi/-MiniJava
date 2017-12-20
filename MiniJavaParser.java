@@ -14,16 +14,16 @@ public class MiniJavaParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__2=1, T__1=2, T__0=3, ID=4, INT=5, FLOAT=6, LETTER=7, DIGIT=8, OPR=9, 
-		DEL=10, WS=11;
+		IDENTIFIER=1, INTEGER_LITERAL=2, FLOAT=3, LETTER=4, DIGIT=5, UNDERSCORE=6, 
+		BINARY_OPR=7, DEL=8, WS=9, TYPE=10, EXPRESSION=11;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'('", "')'", "';'", "ID", "INT", "FLOAT", "LETTER", "DIGIT", 
-		"OPR", "DEL", "WS"
+		"<INVALID>", "IDENTIFIER", "INTEGER_LITERAL", "FLOAT", "LETTER", "DIGIT", 
+		"'_'", "BINARY_OPR", "DEL", "WS", "TYPE", "EXPRESSION"
 	};
 	public static final int
-		RULE_stat = 0, RULE_expr = 1;
+		RULE_prog = 0;
 	public static final String[] ruleNames = {
-		"stat", "expr"
+		"prog"
 	};
 
 	@Override
@@ -42,84 +42,45 @@ public class MiniJavaParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class StatContext extends ParserRuleContext {
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
+	public static class ProgContext extends ParserRuleContext {
+		public TerminalNode EXPRESSION(int i) {
+			return getToken(MiniJavaParser.EXPRESSION, i);
 		}
-		public StatContext(ParserRuleContext parent, int invokingState) {
+		public List<TerminalNode> EXPRESSION() { return getTokens(MiniJavaParser.EXPRESSION); }
+		public ProgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_stat; }
+		@Override public int getRuleIndex() { return RULE_prog; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterStat(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterProg(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitStat(this);
+			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitProg(this);
 		}
 	}
 
-	public final StatContext stat() throws RecognitionException {
-		StatContext _localctx = new StatContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_stat);
+	public final ProgContext prog() throws RecognitionException {
+		ProgContext _localctx = new ProgContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_prog);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(4); expr();
-			setState(5); match(3);
+			setState(5);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==EXPRESSION) {
+				{
+				{
+				setState(2); match(EXPRESSION);
+				}
+				}
+				setState(7);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class ExprContext extends ParserRuleContext {
-		public TerminalNode ID() { return getToken(MiniJavaParser.ID, 0); }
-		public TerminalNode INT() { return getToken(MiniJavaParser.INT, 0); }
-		public ExprContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_expr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).enterExpr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MiniJavaListener ) ((MiniJavaListener)listener).exitExpr(this);
-		}
-	}
-
-	public final ExprContext expr() throws RecognitionException {
-		ExprContext _localctx = new ExprContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_expr);
-		try {
-			setState(11);
-			switch (_input.LA(1)) {
-			case ID:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(7); match(ID);
-				setState(8); match(1);
-				setState(9); match(2);
-				}
-				break;
-			case INT:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(10); match(INT);
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -134,10 +95,9 @@ public class MiniJavaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\2\3\r\20\4\2\t\2\4\3\t\3\3\2\3\2\3\2\3\3\3\3\3\3\3\3\5\3\16\n\3\3\3\2"+
-		"\4\2\4\2\2\16\2\6\3\2\2\2\4\r\3\2\2\2\6\7\5\4\3\2\7\b\7\5\2\2\b\3\3\2"+
-		"\2\2\t\n\7\6\2\2\n\13\7\3\2\2\13\16\7\4\2\2\f\16\7\7\2\2\r\t\3\2\2\2\r"+
-		"\f\3\2\2\2\16\5\3\2\2\2\3\r";
+		"\2\3\r\13\4\2\t\2\3\2\7\2\6\n\2\f\2\16\2\t\13\2\3\2\2\3\2\2\2\n\2\7\3"+
+		"\2\2\2\4\6\7\r\2\2\5\4\3\2\2\2\6\t\3\2\2\2\7\5\3\2\2\2\7\b\3\2\2\2\b\3"+
+		"\3\2\2\2\t\7\3\2\2\2\3\7";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

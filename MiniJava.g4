@@ -1,15 +1,35 @@
 grammar MiniJava;
-
+prog : 'hello'; // EXPRESSION*;
 //basic elements
-ID : LETTER (LETTER | DIGIT)* ;
-INT: [1-9] DIGIT* | DIGIT ;
-FLOAT: INT '.' [0-9]* [1-9] ;
+IDENTIFIER : LETTER (LETTER | DIGIT | UNDERSCORE)* ;
+INTEGER_LITERAL : [1-9] DIGIT* | DIGIT ;
+FLOAT : INTEGER_LITERAL '.' DIGIT* [1-9] ;
+LETTER : [a-zA-Z] ;
+DIGIT : [0-9] ;
+UNDERSCORE : '_';
 
-LETTER	: [a-zA-Z] ;
-DIGIT	: [0-9] ;
-OPR: '+' | '-' | '*' | '/' | '<' | '<=' | '>=' | '>' | '==' | '!=' | '&&' | '||' | '!';
-DEL: ';' | '.' | ',' | '=' | '(' | ')' | '{' | '}' | '[' | ']';
+BINARY_OPR : '&&' | '<' | '+' | '-' | '*';
+DEL : ';' | '.' | ',' | '=' | '(' | ')' | '{' | '}' | '[' | ']';
 WS : [\t\r\n]+ -> skip ;
 
-stat: expr ';' ;// expression statement
-expr: ID '(' ')' | INT ;
+TYPE : 'int' '[' ']' | 'boolean' | 'int' | IDENTIFIER;
+
+
+//Expression
+/**
+EXPRESSION : INTEGER_LITERAL
+           | 'true'
+           | 'false'
+           | IDENTIFIER
+           | 'this'
+           | 'new' 'int' '[' EXPRESSION ']'
+           | 'new' IDENTIFIER '(' ')'
+           | '!' EXPRESSION
+           | '(' EXPRESSION ')'
+           | EXPRESSION BINARY_OPR EXPRESSION
+           | EXPRESSION '[' EXPRESSION ']'
+           | EXPRESSION '.' 'length'
+           | EXPRESSION '.' IDENTIFIER '(' (EXPRESSION (',' EXPRESSION)* )? ')';
+
+**/
+//Statement

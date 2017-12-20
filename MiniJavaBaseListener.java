@@ -6,11 +6,8 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.antlr.v4.runtime.tree.ErrorNode;
 
 public class MiniJavaBaseListener implements MiniJavaListener {
-	@Override public void enterStat(MiniJavaParser.StatContext ctx) { }
-	@Override public void exitStat(MiniJavaParser.StatContext ctx) { }
-
-	@Override public void enterExpr(MiniJavaParser.ExprContext ctx) { }
-	@Override public void exitExpr(MiniJavaParser.ExprContext ctx) { }
+	@Override public void enterProg(MiniJavaParser.ProgContext ctx) { }
+	@Override public void exitProg(MiniJavaParser.ProgContext ctx) { }
 
 	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	@Override public void exitEveryRule(ParserRuleContext ctx) { }
