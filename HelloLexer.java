@@ -1,4 +1,4 @@
-// Generated from Hello.g4 by ANTLR 4.0
+// Generated from MiniJava.g4 by ANTLR 4.0
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -44,7 +44,7 @@ public class HelloLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Hello.g4"; }
+	public String getGrammarFileName() { return "MiniJava.g4"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }

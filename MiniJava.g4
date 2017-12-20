@@ -1,35 +1,66 @@
 grammar MiniJava;
-prog : 'hello'; // EXPRESSION*;
-//basic elements
-IDENTIFIER : LETTER (LETTER | DIGIT | UNDERSCORE)* ;
-INTEGER_LITERAL : [1-9] DIGIT* | DIGIT ;
-FLOAT : INTEGER_LITERAL '.' DIGIT* [1-9] ;
-LETTER : [a-zA-Z] ;
-DIGIT : [0-9] ;
-UNDERSCORE : '_';
 
-BINARY_OPR : '&&' | '<' | '+' | '-' | '*';
-DEL : ';' | '.' | ',' | '=' | '(' | ')' | '{' | '}' | '[' | ']';
+INT : '-'? [1-9][0-9]+ | [0-9];
+DIGIT : [0-9];
+UNDERSCORE : '_';
+LETTER : [a-zA-Z];
+ID : LETTER (LETTER| DIGIT| UNDERSCORE)*;
+TYPE : 'int' '[' ']' | 'boolean' | 'int' | ID;
+ADD_MINUS : '+' | '-';
+bool : 'true' | 'false'| expr_cmp;
+AND : '&&';
 WS : [\t\r\n]+ -> skip ;
 
-TYPE : 'int' '[' ']' | 'boolean' | 'int' | IDENTIFIER;
+t : INT | '(' expr_am ')'| ID| expr_neg| '(' t ')';
 
+expr_neg : '!'+ ( t| expr_and);
 
-//Expression
-/**
-EXPRESSION : INTEGER_LITERAL
-           | 'true'
-           | 'false'
-           | IDENTIFIER
-           | 'this'
-           | 'new' 'int' '[' EXPRESSION ']'
-           | 'new' IDENTIFIER '(' ')'
-           | '!' EXPRESSION
-           | '(' EXPRESSION ')'
-           | EXPRESSION BINARY_OPR EXPRESSION
-           | EXPRESSION '[' EXPRESSION ']'
-           | EXPRESSION '.' 'length'
-           | EXPRESSION '.' IDENTIFIER '(' (EXPRESSION (',' EXPRESSION)* )? ')';
+expr_cmp : t '>' t
+         | '(' expr_cmp ')'
+         ;
 
-**/
-//Statement
+expr_am : expr_time  (ADD_MINUS expr_time )*
+         | '(' expr_am ')'
+         ;
+
+expr_time : t ('*' t)*
+          | '(' expr_time ')'
+          ;
+
+expr_and : bool (AND bool)*
+         | '(' expr_and ')'
+         ;
+
+expr_arith : expr_am | expr_and;
+
+array : ID '[' expr_arith  ']'
+      | '(' array ')'
+      ;
+
+expr_length : ( array| ID) '.' 'length'
+            | '(' expr_length')'
+            ;
+
+expr_this : 'this' 
+          | '(' expr_this ')'
+          ;
+
+expr_new : 'new' 'int' '[' expr_arith ']' 
+         | 'new' ID '(' ')'
+         | '(' expr_new ')'
+         ;
+
+expr_unit : (expr_arith | array| expr_length| expr_this| expr_new);
+
+expr_para : expr_unit '.' ID '(' (expr_unit (',' expr_unit)*)? ')'
+          ;
+
+expr: expr_unit | expr_para | '(' expr ')';
+
+stat : '{' stat '}'
+     | 'if' '(' expr ')' stat 'else' stat
+     | 'while' '(' expr ')' stat
+     | 'System.out.println' '(' expr ')' ';'
+     | ID '=' expr ';'
+     | ID '[' expr ']' '=' expr ';'
+     ;
