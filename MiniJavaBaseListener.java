@@ -18,6 +18,9 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	@Override public void enterBool(MiniJavaParser.BoolContext ctx) { }
 	@Override public void exitBool(MiniJavaParser.BoolContext ctx) { }
 
+	@Override public void enterMainClass(MiniJavaParser.MainClassContext ctx) { }
+	@Override public void exitMainClass(MiniJavaParser.MainClassContext ctx) { }
+
 	@Override public void enterExpr_cmp(MiniJavaParser.Expr_cmpContext ctx) { }
 	@Override public void exitExpr_cmp(MiniJavaParser.Expr_cmpContext ctx) { }
 
@@ -38,6 +41,9 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 
 	@Override public void enterExpr_unit(MiniJavaParser.Expr_unitContext ctx) { }
 	@Override public void exitExpr_unit(MiniJavaParser.Expr_unitContext ctx) { }
+
+	@Override public void enterProg(MiniJavaParser.ProgContext ctx) { }
+	@Override public void exitProg(MiniJavaParser.ProgContext ctx) { }
 
 	@Override public void enterExpr_neg(MiniJavaParser.Expr_negContext ctx) { }
 	@Override public void exitExpr_neg(MiniJavaParser.Expr_negContext ctx) { }

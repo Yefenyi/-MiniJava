@@ -15,6 +15,9 @@ public interface MiniJavaListener extends ParseTreeListener {
 	void enterBool(MiniJavaParser.BoolContext ctx);
 	void exitBool(MiniJavaParser.BoolContext ctx);
 
+	void enterMainClass(MiniJavaParser.MainClassContext ctx);
+	void exitMainClass(MiniJavaParser.MainClassContext ctx);
+
 	void enterExpr_cmp(MiniJavaParser.Expr_cmpContext ctx);
 	void exitExpr_cmp(MiniJavaParser.Expr_cmpContext ctx);
 
@@ -35,6 +38,9 @@ public interface MiniJavaListener extends ParseTreeListener {
 
 	void enterExpr_unit(MiniJavaParser.Expr_unitContext ctx);
 	void exitExpr_unit(MiniJavaParser.Expr_unitContext ctx);
+
+	void enterProg(MiniJavaParser.ProgContext ctx);
+	void exitProg(MiniJavaParser.ProgContext ctx);
 
 	void enterExpr_neg(MiniJavaParser.Expr_negContext ctx);
 	void exitExpr_neg(MiniJavaParser.Expr_negContext ctx);

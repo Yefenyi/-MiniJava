@@ -65,10 +65,13 @@ stat : '{' stat '}'
      | ID '[' expr ']' '=' expr ';'
      ;
 
-classDef : 'class' ID ('extends' ID)? '{' 'public' 'static' 'void' 'main' 
-           '(' 'String' '[' ']' ID ')' '{' stat '}' '}';
-
 varDef : TYPE ID ';';
 
 methodDef : 'public' TYPE ID '(' (TYPE ID (',' TYPE ID )*)? ')' '{' (varDef)* (stat)* 'return' expr ';' '}';
 
+classDef : 'class' ID ('extends' ID)? '{' (varDef)* (methodDef)* '}';
+
+mainClass : 'class' ID ('extends' ID)? '{' 'public' 'static' 'void' 'main' 
+           '(' 'String' '[' ']' ID ')' '{' stat '}' '}';
+
+prog: mainClass (classDef)* ;
