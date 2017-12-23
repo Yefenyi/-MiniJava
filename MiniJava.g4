@@ -9,7 +9,7 @@ TYPE : 'int' '[' ']' | 'boolean' | 'int' | ID;
 ADD_MINUS : '+' | '-';
 bool : 'true' | 'false'| expr_cmp;
 AND : '&&';
-WS : [\t\r\n]+ -> skip ;
+WS : [ \t\r\n]+ -> skip ;
 
 t : INT | '(' expr_am ')'| ID| expr_neg| '(' t ')';
 
