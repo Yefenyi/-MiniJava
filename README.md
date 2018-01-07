@@ -14,16 +14,21 @@ This is a compiler project for MiniJava.
 
 ### Building Environment
 
-`export CLASSPATH=".:<antlr_path>/antlr-4.0-complete.jar:$CLASSPATH"</br>
-java -jar <antlr_path>/antlr-4.0-complete.jar</br>
-java org.antlr.v4.Tool</br>
-alias antlr4='java -jar <antlr_path>/antlr-4.0-complete.jar'</br>
-alias grun='java org.antlr.v4.runtime.misc.TestRig'</br>
-`
+`export CLASSPATH=".:<antlr_path>/antlr-4.0-complete.jar:$CLASSPATH"`
+
+`java -jar <antlr_path>/antlr-4.0-complete.jar`
+
+`java org.antlr.v4.Tool`
+
+`alias antlr4='java -jar <antlr_path>/antlr-4.0-complete.jar'`
+
+`alias grun='java org.antlr.v4.runtime.misc.TestRig'`
+
 
 ### Compiling
-`antlr4 MiniJava.g4
-javac *.java`
+`antlr4 MiniJava.g4`
+
+`javac *.java`
 
 ### Running
 `grun MiniJava <context> <option> <testcase>`
