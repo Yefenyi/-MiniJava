@@ -7,6 +7,7 @@ This is a compiler project for MiniJava.
 ## Members
 
 14307130060 Fenyi Ye 叶奋翼 : lexical/syntactic analysis, error recovery
+
 14307130310 Yihan Cai 蔡一涵 : semantic analysis, projoct report
 
 ## How to Run
