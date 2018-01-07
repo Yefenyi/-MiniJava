@@ -1,4 +1,7 @@
 // Generated from MiniJava.g4 by ANTLR 4.0
+
+import java.util.*;
+
 import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.Token;
 
@@ -12,11 +15,11 @@ public interface MiniJavaListener extends ParseTreeListener {
 	void enterStat(MiniJavaParser.StatContext ctx);
 	void exitStat(MiniJavaParser.StatContext ctx);
 
-	void enterBool(MiniJavaParser.BoolContext ctx);
-	void exitBool(MiniJavaParser.BoolContext ctx);
-
 	void enterMainClass(MiniJavaParser.MainClassContext ctx);
 	void exitMainClass(MiniJavaParser.MainClassContext ctx);
+
+	void enterBool(MiniJavaParser.BoolContext ctx);
+	void exitBool(MiniJavaParser.BoolContext ctx);
 
 	void enterExpr_cmp(MiniJavaParser.Expr_cmpContext ctx);
 	void exitExpr_cmp(MiniJavaParser.Expr_cmpContext ctx);
@@ -30,14 +33,14 @@ public interface MiniJavaListener extends ParseTreeListener {
 	void enterMethodDef(MiniJavaParser.MethodDefContext ctx);
 	void exitMethodDef(MiniJavaParser.MethodDefContext ctx);
 
-	void enterType(MiniJavaParser.TypeContext ctx);
-	void exitType(MiniJavaParser.TypeContext ctx);
-
 	void enterExpr_am(MiniJavaParser.Expr_amContext ctx);
 	void exitExpr_am(MiniJavaParser.Expr_amContext ctx);
 
 	void enterExpr_length(MiniJavaParser.Expr_lengthContext ctx);
 	void exitExpr_length(MiniJavaParser.Expr_lengthContext ctx);
+
+	void enterType(MiniJavaParser.TypeContext ctx);
+	void exitType(MiniJavaParser.TypeContext ctx);
 
 	void enterExpr_unit(MiniJavaParser.Expr_unitContext ctx);
 	void exitExpr_unit(MiniJavaParser.Expr_unitContext ctx);
@@ -68,6 +71,9 @@ public interface MiniJavaListener extends ParseTreeListener {
 
 	void enterExpr(MiniJavaParser.ExprContext ctx);
 	void exitExpr(MiniJavaParser.ExprContext ctx);
+
+	void enterCalculate(MiniJavaParser.CalculateContext ctx);
+	void exitCalculate(MiniJavaParser.CalculateContext ctx);
 
 	void enterId(MiniJavaParser.IdContext ctx);
 	void exitId(MiniJavaParser.IdContext ctx);

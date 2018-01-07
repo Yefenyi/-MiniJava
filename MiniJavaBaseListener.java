@@ -1,5 +1,8 @@
 // Generated from MiniJava.g4 by ANTLR 4.0
 
+import java.util.*;
+
+
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -15,11 +18,11 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	@Override public void enterStat(MiniJavaParser.StatContext ctx) { }
 	@Override public void exitStat(MiniJavaParser.StatContext ctx) { }
 
-	@Override public void enterBool(MiniJavaParser.BoolContext ctx) { }
-	@Override public void exitBool(MiniJavaParser.BoolContext ctx) { }
-
 	@Override public void enterMainClass(MiniJavaParser.MainClassContext ctx) { }
 	@Override public void exitMainClass(MiniJavaParser.MainClassContext ctx) { }
+
+	@Override public void enterBool(MiniJavaParser.BoolContext ctx) { }
+	@Override public void exitBool(MiniJavaParser.BoolContext ctx) { }
 
 	@Override public void enterExpr_cmp(MiniJavaParser.Expr_cmpContext ctx) { }
 	@Override public void exitExpr_cmp(MiniJavaParser.Expr_cmpContext ctx) { }
@@ -33,14 +36,14 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	@Override public void enterMethodDef(MiniJavaParser.MethodDefContext ctx) { }
 	@Override public void exitMethodDef(MiniJavaParser.MethodDefContext ctx) { }
 
-	@Override public void enterType(MiniJavaParser.TypeContext ctx) { }
-	@Override public void exitType(MiniJavaParser.TypeContext ctx) { }
-
 	@Override public void enterExpr_am(MiniJavaParser.Expr_amContext ctx) { }
 	@Override public void exitExpr_am(MiniJavaParser.Expr_amContext ctx) { }
 
 	@Override public void enterExpr_length(MiniJavaParser.Expr_lengthContext ctx) { }
 	@Override public void exitExpr_length(MiniJavaParser.Expr_lengthContext ctx) { }
+
+	@Override public void enterType(MiniJavaParser.TypeContext ctx) { }
+	@Override public void exitType(MiniJavaParser.TypeContext ctx) { }
 
 	@Override public void enterExpr_unit(MiniJavaParser.Expr_unitContext ctx) { }
 	@Override public void exitExpr_unit(MiniJavaParser.Expr_unitContext ctx) { }
@@ -71,6 +74,9 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 
 	@Override public void enterExpr(MiniJavaParser.ExprContext ctx) { }
 	@Override public void exitExpr(MiniJavaParser.ExprContext ctx) { }
+
+	@Override public void enterCalculate(MiniJavaParser.CalculateContext ctx) { }
+	@Override public void exitCalculate(MiniJavaParser.CalculateContext ctx) { }
 
 	@Override public void enterId(MiniJavaParser.IdContext ctx) { }
 	@Override public void exitId(MiniJavaParser.IdContext ctx) { }
