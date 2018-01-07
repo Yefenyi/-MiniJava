@@ -33,6 +33,9 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 	@Override public void enterMethodDef(MiniJavaParser.MethodDefContext ctx) { }
 	@Override public void exitMethodDef(MiniJavaParser.MethodDefContext ctx) { }
 
+	@Override public void enterType(MiniJavaParser.TypeContext ctx) { }
+	@Override public void exitType(MiniJavaParser.TypeContext ctx) { }
+
 	@Override public void enterExpr_am(MiniJavaParser.Expr_amContext ctx) { }
 	@Override public void exitExpr_am(MiniJavaParser.Expr_amContext ctx) { }
 
@@ -68,6 +71,9 @@ public class MiniJavaBaseListener implements MiniJavaListener {
 
 	@Override public void enterExpr(MiniJavaParser.ExprContext ctx) { }
 	@Override public void exitExpr(MiniJavaParser.ExprContext ctx) { }
+
+	@Override public void enterId(MiniJavaParser.IdContext ctx) { }
+	@Override public void exitId(MiniJavaParser.IdContext ctx) { }
 
 	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	@Override public void exitEveryRule(ParserRuleContext ctx) { }
